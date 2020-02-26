@@ -28,5 +28,5 @@ pip install -e .
 ## Usage
 
 ``` bash
-gunicorn -w 2 --bind 0.0.0.0:8000 wsgi:app
+gunicorn --chdir /home/{username} -w 2 --bind 0.0.0.0:8000 --access-logfile /home/{username}/dummyrest/output.log --log-level INFO --capture-output --error-logfile /home/{username}/dummyrest/error.log wsgi:app
 ```
