@@ -2,6 +2,17 @@
 
 Tool for testing POST Function
 
+## Available APIs
+### Dummy
+| API | Method | Data | Description |
+| --- | --- | --- | --- |
+| /dummy | GET | - | Get a list of all the items in the dummy resource |
+| /dummy | POST | JSON | Add a new item to the dummy resource |
+| /dummy/{id} | GET | - | Get the item with id=id from the dummy resource |
+| /dummy/{id} | POST | JSON | Create an item with id=id from the dummy resource |
+| /dummy/{id} | PUT | JSON | Update the item with id=id from the dummy resource |
+| /dummy/{id} | DELETE | - | Delete the item with id=id from the dummy resource |
+
 ## Requirements
 
 * python >= 3.7
