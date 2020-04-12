@@ -8,6 +8,7 @@ flask = "*"
 pylint = "*"
 twine = "*"
 black = "*"
+pycodestyle = "*"
 
 [packages]
 flask-restful = "*"

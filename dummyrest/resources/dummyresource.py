@@ -3,16 +3,15 @@
 Module that creates the dummy REST API
 """
 
-from flask import Flask, request
-from flask_restful import Resource, Api
+from flask import request
+from flask_restful import Resource
 
-app = Flask(__name__)
-api = Api(app)
 
 class DummyApi(Resource):
     """
     Class that creates the resources for the Dummy REST API
     """
+
     def get(self):
         """
         GET Method Function
@@ -24,9 +23,3 @@ class DummyApi(Resource):
         POST Method Function
         """
         return request.json
-
-
-api.add_resource(DummyApi, '/api')
-
-if __name__ == '__main__':
-    app.run(debug=True)

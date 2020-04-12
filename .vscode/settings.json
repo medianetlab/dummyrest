@@ -1,4 +1,8 @@
 {
-    "python.pythonPath": "/home/localadmin/.local/share/virtualenvs/dummyrest-gUH4wsss/bin/python",
-    "python.formatting.provider": "black"
+    "python.pythonPath": "/home/themis/.local/share/virtualenvs/dummyrest-a2ib-lMx/bin/python",
+    "python.formatting.provider": "black",
+    "pyright.openFilesOnly": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true
 }
