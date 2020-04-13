@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Module that creates the dummy REST API
-"""
-
 from flask import request
 from flask_restful import Resource
 
