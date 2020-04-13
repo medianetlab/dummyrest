@@ -14,14 +14,14 @@ from setuptools import find_packages, setup, Command
 # Package meta-data.
 NAME = "dummyrest"
 DESCRIPTION = "Dummy API for testing REST functions"
-URL = "https://github.com/themisAnagno/dummyrest.git"
+URL = "https://github.com/medianetlab/dummyrest.git"
 EMAIL = "thmanagnostopoulos@gmail.com"
 AUTHOR = "Themis Anagnostopoulos"
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 # What packages are required for this module to be executed?
-REQUIRED = ["flask", "flask-restful", "gunicorn"]
+REQUIRED = ["flask", "flask-restful", "gunicorn", "flask-sqlalchemy"]
 
 # What packages are optional?
 EXTRAS = {}
@@ -102,7 +102,7 @@ setup(
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
-    entry_points={"console_scripts": []},
+    scripts=["bin/dummyrest"],
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,

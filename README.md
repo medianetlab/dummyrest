@@ -16,6 +16,7 @@ Tool for testing POST Function
 ## Requirements
 
 * python >= 3.7
+* python-dev >= 3.7
 * pip3.7
 
 To install python3.7 and pip3.7 on Ubuntu system run:

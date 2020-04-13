@@ -1,0 +1,3 @@
+#!/bin/bash
+
+uwsgi --http-socket :8000 --stats 8001 --master --module dummyrest.app:app --logto $HOME/dummyrest.log
