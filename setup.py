@@ -21,7 +21,7 @@ REQUIRES_PYTHON = ">=3.7.0"
 VERSION = "0.1.1"
 
 # What packages are required for this module to be executed?
-REQUIRED = ["flask", "flask-restful", "gunicorn", "flask-sqlalchemy"]
+REQUIRED = ["flask", "flask-restful", "gunicorn", "flask-sqlalchemy", "uwsgi", "psycopg2-binary"]
 
 # What packages are optional?
 EXTRAS = {}

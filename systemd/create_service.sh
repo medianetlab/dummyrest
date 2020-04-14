@@ -30,5 +30,7 @@ dummyrest.service
 sudo chown root:root dummyrest.service
 sudo mv dummyrest.service /etc/systemd/system/
 
-# sudo systemctl start dummyrest
-# sleep 2
+sudo systemctl start dummyrest
+sleep 2
+
+sudo systemctl enable dummyrest

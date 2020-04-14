@@ -7,5 +7,4 @@ uwsgi \
 --emperor \
 --die-on-term \
 --module dummyrest.app:app  \
---logto $HOME/dummyrest.log \
---logger = syslog:dummyrest
+--logto $HOME/dummyrest.log
