@@ -1,13 +1,25 @@
 #!/bin/bash
 
+
 cp systemd/service_template dummyrest.service
 
+# Check the PATH - It should include /usr/local/bin as most modules are isntalled there
+if [[ $PATH != *"/usr/local/bin"* ]]
+then
+    PATH="${PATH}:/usr/local/bin"
+    sed -i -e "s/\${path}/${PATH}/" dummyrest.service
+else
+    sed -i -e "/\${path}/d" dummyrest.service
+fi
+
+# Install the modules
+pip3.7 install .
+
 # Create the folder where the application will run
-sudo mkdir -p /var/run/dummyrest/logs
-sudo chown -R ${USER}:${USER} /var/run/dummyrest
+mkdir -p /var/run/dummyrest/logs
 
 # Copy the configuration file to the created folder
-sudo cp systemd/uwsgi.ini /var/run/dummyrest/
+cp systemd/uwsgi.ini /var/run/dummyrest/
 
 # Read the database url, if any
 read -p "External DB? (y/N) > " ans
@@ -19,7 +31,6 @@ else
     sed -i -e "/\${db_url}/d" dummyrest.service
 fi
 
-
 UWSGI_PATH=$(which uwsgi)
 
 # Create the service file
@@ -27,10 +38,11 @@ sed -i -e "s/\${user}/${USER}/" \
 -e "s+\${UWSGI_PATH}+${UWSGI_PATH}+" \
 dummyrest.service
 
-sudo chown root:root dummyrest.service
-sudo mv dummyrest.service /etc/systemd/system/
+mv dummyrest.service /etc/systemd/system/
 
-sudo systemctl start dummyrest
+systemctl start dummyrest
 sleep 2
 
-sudo systemctl enable dummyrest
+systemctl enable dummyrest
+
+echo "Succesfully started dummyrest service\n"
