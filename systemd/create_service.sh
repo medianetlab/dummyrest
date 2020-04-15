@@ -13,7 +13,7 @@ else
 fi
 
 # Install the modules
-pip3.7 install .
+pip3.7 install . || pip3.6 install .
 
 # Create the folder where the application will run
 mkdir -p /var/run/dummyrest/logs
