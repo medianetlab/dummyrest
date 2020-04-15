@@ -13,9 +13,10 @@ Tool for testing REST APIs Function
 > Run as root
 
 ``` bash
-apt install python3.7-minimal
-apt install python3.7-dev
-apt install python3-pip
+apt update
+apt install python3.7-minimal -y
+apt install python3.7-dev -y
+apt install python3-pip -y
 python3.7 -m pip install --upgrade pip
 ```
 
@@ -26,13 +27,14 @@ python3.7 -m pip install --upgrade pip
 > Run as root
 
 ```
+yum update -y
 yum install epel-release -y
 yum install gcc openssl-devel bzip2-devel libffi-devel wget libsqlite3x-devel.x86_64 git -y
 cd /usr/src
 wget https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tgz
 tar xzf Python-3.7.5.tgz
 cd Python-3.7.5
-./configure --enable-optimizations --enable-loadable-sqlite-extensions && sudo make install
+./configure --enable-optimizations --enable-loadable-sqlite-extensions && make install
 rm /usr/src/Python-3.7.5.tgz
 ```
 

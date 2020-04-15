@@ -23,7 +23,19 @@ api.add_resource(AuthorListApi, "/authors")
 
 # Add the database configuration
 db.init_app(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL", "sqlite:///data.db")
+url = os.environ.get("DB_URL")
+if not url:
+    url = os.environ.get("SQLITE_DB_PATH")
+    if url:
+        app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{url}"
+    else:
+        url = os.environ.get("HOME")
+        if not url:
+            raise ValueError("Please set the DB_URL or the SQLITE_DB_PATH env variables")
+        app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{url}/dummyrest.db"
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = url
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
