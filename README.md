@@ -90,7 +90,7 @@ systemctl status nginx
 
 ## 6.2. Configure NNGINX
 
-Create the `/etc/nginx/conf.d/dummyrest.conf` file:
+Remove any default file in `/etc/nginx/conf.d/` or `/etc/nginx/sites-enabled/` directories and create the `/etc/nginx/conf.d/dummyrest.conf` file:
 
 ```
 server {
@@ -102,7 +102,7 @@ server {
         uwsgi_pass unix:/var/www/html/dummyrest/socket.sock;
     }
 
-    error_page 404 /404.html
+    error_page 404 /404.html;
     location /404.html {
         root /usr/share/nginx/html;
     }
