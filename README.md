@@ -73,6 +73,51 @@ sudo ./systemd/create_service
 
 Run `systemctl status dummyrest` to check if the service has started successfully. The logs are stored in `/var/run/dummyrest/logs/dummyrest.log`
 
+## 6. Use dummyrest with NGINX
+
+### 6.1 Install NGINX
+
+#### 6.1.1 Debian
+
+> Run as root
+
+```bash
+apt install nginx 
+systemctl status nginx
+```
+
+#### 6.1.2 CentOS
+
+## 6.2. Configure NNGINX
+
+Create the `/etc/nginx/conf.d/dummyrest.conf` file:
+
+```
+server {
+    listen 80 default_server;
+    server_name _;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/var/www/html/dummyrest/socket.sock;
+    }
+
+    error_page 404 /404.html
+    location /404.html {
+        root /usr/share/nginx/html;
+    }
+
+}
+```
+Reload the nginx service: `sudo systemctl reload nginx`
+
+Create the folder where the socket file will be saved:
+
+``` bash
+sudo mkdir -p /var/www/html/dummyrest/
+sudo chown -R ${USER}:${USER} /var/www/html/dummyrest
+```
+
 ## 6. Available APIs
 ### 6.1 Dummy
 | API | Method | Data | Description |

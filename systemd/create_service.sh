@@ -17,6 +17,7 @@ pip3.7 install . || pip3.6 install .
 
 # Create the folder where the application will run
 mkdir -p /var/run/dummyrest/logs
+cp /dummyrest/dummyrest.db /var/run/dummyrest/
 
 # Copy the configuration file to the created folder
 cp systemd/uwsgi.ini /var/run/dummyrest/

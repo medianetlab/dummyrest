@@ -1,0 +1,9 @@
+#!/bin/bash
+
+uwsgi \
+--socket /var/www/html/dummyrest/socket.sock \
+--master \
+--emperor \
+--die-on-term \
+--module dummyrest.app:app  \
+--logto $HOME/dummyrest.log

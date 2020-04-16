@@ -17,7 +17,7 @@ DESCRIPTION = "Dummy API for testing REST functions"
 URL = "https://github.com/medianetlab/dummyrest.git"
 EMAIL = "thmanagnostopoulos@gmail.com"
 AUTHOR = "Themis Anagnostopoulos"
-REQUIRES_PYTHON = ">=3.7.0"
+REQUIRES_PYTHON = ">=3.6.0"
 VERSION = "0.1.1"
 
 # What packages are required for this module to be executed?
@@ -102,7 +102,7 @@ setup(
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
-    scripts=["bin/dummyrest"],
+    scripts=["bin/dummyrest", "bin/dummyrest-nginx"],
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
