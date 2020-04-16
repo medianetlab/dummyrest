@@ -3,6 +3,7 @@
 uwsgi \
 --socket /var/www/html/dummyrest/socket.sock \
 --chmod-socket=777 \
+--stats :8001 \
 --master \
 --emperor \
 --die-on-term \

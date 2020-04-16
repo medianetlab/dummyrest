@@ -26,7 +26,7 @@ python3.7 -m pip install --upgrade pip
 
 ```
 yum update -y
-yum install -y epel-release
+yum install -y epel-release && yum update -y
 yum install -y gcc git python3 python3-devel python3-pip
 ```
 
@@ -40,7 +40,7 @@ pip3.7 install dummyrest
 
 ### 2.2 Github
 ```
-git clone 
+git clone https://github.com/medianetlab/dummyrest.git
 cd dummyrest
 sudo pip3.7 install .
 ```
@@ -56,7 +56,7 @@ dummyrest
 ```
 Add the `&` at the end to run at the background
 
-The dummyrest application is listening by default on port 8000. To check that the application has started run a curl request `curl http://<IP>:8000/dummy`. You should get a **200** response with the message `"Dummy REST API"`. By default the application writes a log file at the home directory of the user that started the application.
+The dummyrest application is listening by default on port **8000**. To check that the application has started run a curl request `curl http://<IP>:8000/dummy`. You should get a **200** response with the message `"Dummy REST API"`. By default the application writes a log file at the home directory of the user that started the application.
 
 ## 4. Database
 
@@ -82,13 +82,43 @@ Run `systemctl status dummyrest` to check if the service has started successfull
 > Run as root
 
 ```bash
-apt install nginx 
+apt install -y nginx
+systemctl start nginx
+systemctl enable nginx
 systemctl status nginx
 ```
 
 #### 6.1.2 CentOS
 
-## 6.2. Configure NNGINX
+> Run as root
+
+Set up the yum repository for RHEL or CentOS by creating the file nginx.repo: `vim /etc/yum.repos.d/nginx.repo`
+
+```bash
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/mainline/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+```
+
+Install nginx:
+
+```bash
+yum update -y
+yum install -y nginx
+systemctl start nginx
+systemctl enable nginx
+systemctl status nginx
+```
+
+If the SELINUX is enabled, then it must be allowed to serve http
+```bash
+semanage permissive -a httpd_t
+systemctl reload nginx
+```
+
+### 6.2. Configure NNGINX
 
 Remove any default file in `/etc/nginx/conf.d/` or `/etc/nginx/sites-enabled/` directories and create the `/etc/nginx/conf.d/dummyrest.conf` file:
 
@@ -118,8 +148,17 @@ sudo mkdir -p /var/www/html/dummyrest/
 sudo chown -R ${USER}:${USER} /var/www/html/dummyrest
 ```
 
-## 6. Available APIs
-### 6.1 Dummy
+Run the `dummyrest-nginx` script to start serving the dummyrest application on port **80**
+
+### 6.3 Create systemd service with nginx
+
+To make create a systemd service using the nginx as webserver, configure the nginx as described above and run the script:
+```
+./nginx/systemd/create_service.sh
+```
+
+## 7. Available APIs
+### 7.1 Dummy
 | API | Method | Data | Description |
 | --- | --- | --- | --- |
 | /dummy | GET | - | Get a list of all the items in the dummy resource |
@@ -129,7 +168,7 @@ sudo chown -R ${USER}:${USER} /var/www/html/dummyrest
 | /dummy/{id} | PUT | JSON | Update or create the item with id=id from the dummy resource |
 | /dummy/{id} | DELETE | - | Delete the item with id=id from the dummy resource |
 
-### 6.2 Books
+### 7.2 Books
 | API | Method | Data | Description |
 | --- | --- | --- | --- |
 | /books | GET | - | Get a list of all the books in the database |
@@ -139,7 +178,7 @@ sudo chown -R ${USER}:${USER} /var/www/html/dummyrest
 | /book/{title} | PUT | JSON | Update or create the book with title=title in the database |
 | /book/{title} | DELETE | - | Delete the book with title=title from the database |
 
-### 6.3 Authors
+### 7.3 Authors
 | API | Method | Data | Description |
 | --- | --- | --- | --- |
 | /authors | GET | - | Get a list of all the authors in the database |
