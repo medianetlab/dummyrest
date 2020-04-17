@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI dummyrest application
+
+[Service]
+Environment=DB_URL=${db_url}
+Environment=SQLITE_DB_PATH=/var/run/dummyrest/dummyrest.db
+Environment=PATH=${path}
+User=${user}
+ExecStart=${UWSGI_PATH} --ini /var/run/dummyrest/uwsgi.ini
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+uwsgi \
+--http-socket :8000 \
+--stats :8001 \
+--master \
+--emperor \
+--die-on-term \
+--module dummyrest.app:app  \
+--logto $HOME/dummyrest.log

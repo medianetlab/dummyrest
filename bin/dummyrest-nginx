@@ -1,0 +1,11 @@
+#!/bin/bash
+
+uwsgi \
+--socket /var/www/html/dummyrest/socket.sock \
+--chmod-socket=777 \
+--stats :8001 \
+--master \
+--emperor \
+--die-on-term \
+--module dummyrest.app:app  \
+--logto $HOME/dummyrest.log

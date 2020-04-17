@@ -8,11 +8,15 @@ flask = "*"
 pylint = "*"
 twine = "*"
 black = "*"
+pycodestyle = "*"
 
 [packages]
 flask-restful = "*"
 gunicorn = "*"
 flask = "*"
+flask-sqlalchemy = "*"
+uwsgi = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
