@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "44cea4fd-0332-42ff-8ab1-510cfc7995c5",
+		"name": "dummyrest",
+		"description": "Dummy rest apllication for NCSRD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dummy",
+			"item": [
+				{
+					"name": "/dummy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dummy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dummy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dummy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"test\": \"Hello, World\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dummy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dummy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dummy/<id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dummy/test",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dummy",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dummy<id>",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"themis\": \"Hello, World\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dummy/themis",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dummy",
+								"themis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dummy<id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"themis\": \"Hello, MNL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dummy/themis",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dummy",
+								"themis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dummy<id> Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dummy/themis",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dummy",
+								"themis"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "/books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Animal Farm\",\n\t\"price\": 7,\n\t\"author\": \"Stephen King\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/book/<title>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/book/1984",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								"1984"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/book/<title>",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"price\": 12,\n\t\"author\": \"Stephen King\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/book/IT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								"IT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/book/<title>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"price\": 8,\n\t\"author\": \"George Orwell\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/book/Animal Farm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								"Animal Farm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/book/<title>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/book/1985",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								"1985"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "authors",
+			"item": [
+				{
+					"name": "/authors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/authors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"George Orwell\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/authors/<name>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/author/Stephen%20King",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"author",
+								"Stephen%20King"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/author/<name>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"George Xilouris\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/author/George%20Orwell",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"author",
+								"George%20Orwell"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/author/<name>",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Stephen King\",\n\t\"nationality\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/author/Stephen King",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"author",
+								"Stephen King"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/author/<name>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/author/Erik Hobsbawm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"author",
+								"Erik Hobsbawm"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bc8e3e6b-c5ac-484f-b0c3-1e292dfafec1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "223dd573-9231-4aba-9561-5f4f878e832a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
