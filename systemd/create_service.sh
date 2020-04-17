@@ -17,7 +17,6 @@ pip3.7 install . || pip3.6 install .
 
 # Create the folder where the application will run
 mkdir -p /var/run/dummyrest/logs
-cp /dummyrest/dummyrest.db /var/run/dummyrest/
 
 # Copy the configuration file to the created folder
 cp systemd/uwsgi.ini /var/run/dummyrest/
@@ -27,8 +26,9 @@ read -p "External DB? (y/N) > " ans
 if [ $ans == "y" ]
 then
     read -p "Database URL > " DB_URL
-    sed -i -e "s/\${db_url}/${DB_URL}/" dummyrest.service
+    sed -i -e "s+\${db_url}+${DB_URL}+" dummyrest.service
 else
+    cp dummyrest/dummyrest.db /var/run/dummyrest/
     sed -i -e "/\${db_url}/d" dummyrest.service
 fi
 
